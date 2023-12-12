@@ -15,14 +15,14 @@ const ProductByCategory = ({category}) => {
     const productsFilteredByCategory = productsDb.filter(product=>product.category===category)
     const productsFiltered = productsFilteredByCategory.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
     setProductsByCategory(productsFiltered)
-    console.log(productsByCategory)
   }
   ,[category,search])
 
 
-  const renderProductItem = ({item}) => {
+  const renderProductItem = ({item}) => (
     <ProductItem product={item}/>
-  }
+  )
+  
 
   const onSearch = (search) => {
     setSearch(search)
