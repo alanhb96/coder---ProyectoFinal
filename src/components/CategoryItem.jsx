@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity} from 'react-native'
 import Card from './Card'
+import {colors} from '../global/colors'
 
-const CategoryItem = ({category}) => {
+const CategoryItem = ({category, onSelectCategoryEvent}) => {
   return (
-    <Card style={styles.cardContainer}>
-        <Text style={styles.text}>{category}</Text>
-    </Card>
+    <TouchableOpacity onPress={()=>onSelectCategoryEvent(category)}>
+      <Card style={styles.cardContainer}>
+          <Text style={styles.text}>{category}</Text>
+      </Card>
+    </TouchableOpacity>
   )
 }
 
@@ -14,12 +16,13 @@ export default CategoryItem
 
 const styles = StyleSheet.create({
     cardContainer:{
-        backgroundColor: '#fff',
+        backgroundColor: colors.secondary,
         margin: 10,
         padding:10,
     },
     text:{
+        fontFamily: 'Inter-Regular',
         textTransform: 'capitalize',
-        fontSize: 16,
+        fontSize: 18,
     }
 })

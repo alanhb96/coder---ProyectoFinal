@@ -1,11 +1,43 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {FlatList, StyleSheet} from 'react-native'
+import productsDb from '../data/products.json'
+import ProductItem from '../components/ProductItem'
+import Header from '../components/Header'
+import {useEffect,useState} from 'react'
+import Search from '../components/Search'
 
-const ProductByCategory = () => {
+
+const ProductByCategory = ({category}) => {
+
+  const [productsByCategory,setProductsByCategory] = useState([])
+  const [search,setSearch] = useState('')
+  
+  useEffect(()=>{
+    const productsFilteredByCategory = productsDb.filter(product=>product.category===category)
+    const productsFiltered = productsFilteredByCategory.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+    setProductsByCategory(productsFiltered)
+    console.log(productsByCategory)
+  }
+  ,[category,search])
+
+
+  const renderProductItem = ({item}) => {
+    <ProductItem product={item}/>
+  }
+
+  const onSearch = (search) => {
+    setSearch(search)
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>ProductByCategory</Text>
-    </View>
+    <>
+    <Header title="Products"/>
+    <Search onSearchHandlerEvent ={onSearch}/>
+    <FlatList
+      data={productsByCategory}
+      renderItem={renderProductItem}
+      keyExtractor={item=>item.id}
+    />
+    </>
   )
 }
 

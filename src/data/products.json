@@ -1,3 +1,44 @@
 [
-    
+    {
+        "id": 1,
+        "category" : "boardgames",
+        "title" : "Catan",
+        "description" : "Settlers of Catan is a boardgame so fun you would not notice time passed. From chilling with family to compiting among friends Catan can make your life so full.",
+        "price" : 5000,
+        "players" : 6,
+        "image" : "https://ludoteca.ar/1-large_default/catan.jpg"
+    },
+    {
+        "id": 2,
+        "category" : "boardgames",
+        "title" : "Generala",
+        "description" : "A simple dice game played through out 12 rounds. Be the top scorer to win and do not be so greedy with GENERALA!",
+        "price" : 2000,
+        "players" : 8,
+        "image" : "https://jugueteriascarrousel.com.ar/wp-content/uploads/2020/06/1300.jpg"
+    },
+    {
+        "id": 3,
+        "category" : "accessories",
+        "title" : "Dices",
+        "description" : "Set of 6 faced dices",
+        "price" : 1000,
+        "image" : "https://q-workshop.com/img/p/2/6/0/6/2606-large_default.jpg"
+    },
+    {
+        "id": 4,
+        "category" : "tables",
+        "title" : "Basic Playing Table",
+        "description" : "Basic Playing Table, refined wood",
+        "price" : 60000,
+        "image" : "https://www.modumshop.com/spree/products/255117/large/T_VARIUS-B_2.4_B7x7_160x100x75_EIO_C_0_0_0_cam1.jpg?1688612437"
+    },
+    {
+        "id": 5,
+        "category" : "tables",
+        "title" : "Professional Playing Table",
+        "description" : "Professional Playing Table, with a customized matt ",
+        "price" : 100000,
+        "image" : "https://bandpassdesign.com/cdn/shop/products/standard_dresden_transforming_1_angledcopy_1.jpg?v=1631024763"
+    }
 ]

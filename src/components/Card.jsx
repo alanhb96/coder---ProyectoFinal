@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import {colors} from '../global/colors'
 
 const Card = ({children,style}) => {
   return (
     <View style={{...styles.container,...style}}>
-      <Text>{children}</Text>
+      {children}
     </View>
   )
 }
@@ -13,7 +13,7 @@ export default Card
 
 const styles = StyleSheet.create({
     container:{
-        shadowColor: '#9999A1',
+        shadowColor: colors.gray,
         shadowOffset:{
             width:3,
             height:5,
