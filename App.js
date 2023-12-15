@@ -1,12 +1,14 @@
 import { ActivityIndicator } from 'react-native';
 import Categories from './src/screens/Categories'
 import ProductsByCategories from './src/screens/ProductByCategory'
+import ProductDetail from './src/screens/ProductDetail'
 import {useFonts} from 'expo-font'
 import {useState} from 'react'
 
 export default function App() {
 
   const [categorySelected,setCategorySelected] = useState('')
+  const [productIdSelected,setProductIdSelected] = useState('')
 
   const [fontLoaded] = useFonts({
     'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
@@ -19,14 +21,22 @@ export default function App() {
     setCategorySelected(category)
   }
 
+  const onSelectProductId = (productId) =>{
+    setProductIdSelected(productId)
+  } 
+
   return (
     <>{
+      productIdSelected
+      ?
+      <ProductDetail productId={productIdSelected}/>
+      :
       categorySelected 
-        ?
-        <ProductsByCategories category={categorySelected}/>
-        :
-        <Categories onSelectCategoryEvent={onSelectCategory}/>
-    }
+      ?
+      <ProductsByCategories category={categorySelected} onSelectProductIdEvent={onSelectProductId}/>
+      :
+      <Categories onSelectCategoryEvent={onSelectCategory}/>
+      }
     </>
   );
 }

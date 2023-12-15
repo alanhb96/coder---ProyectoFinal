@@ -6,7 +6,7 @@ import {useEffect,useState} from 'react'
 import Search from '../components/Search'
 
 
-const ProductByCategory = ({category}) => {
+const ProductByCategory = ({category,onSelectProductIdEvent}) => {
 
   const [productsByCategory,setProductsByCategory] = useState([])
   const [search,setSearch] = useState('')
@@ -20,7 +20,7 @@ const ProductByCategory = ({category}) => {
 
 
   const renderProductItem = ({item}) => (
-    <ProductItem product={item}/>
+    <ProductItem onSelectProductIdEvent={onSelectProductIdEvent} product={item}/>
   )
   
 
