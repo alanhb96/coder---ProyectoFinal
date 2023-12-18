@@ -1,15 +1,16 @@
 import {FlatList, StyleSheet} from 'react-native'
 import productsDb from '../data/products.json'
 import ProductItem from '../components/ProductItem'
-import Header from '../components/Header'
 import {useEffect,useState} from 'react'
 import Search from '../components/Search'
 
 
-const ProductByCategory = ({category,onSelectProductIdEvent}) => {
+const ProductByCategory = ({navigation,route}) => {
 
   const [productsByCategory,setProductsByCategory] = useState([])
   const [search,setSearch] = useState('')
+
+  const {category}= route.params
   
   useEffect(()=>{
     const productsFilteredByCategory = productsDb.filter(product=>product.category===category)
@@ -20,7 +21,7 @@ const ProductByCategory = ({category,onSelectProductIdEvent}) => {
 
 
   const renderProductItem = ({item}) => (
-    <ProductItem onSelectProductIdEvent={onSelectProductIdEvent} product={item}/>
+    <ProductItem navigation={navigation} product={item}/>
   )
   
 
@@ -30,7 +31,6 @@ const ProductByCategory = ({category,onSelectProductIdEvent}) => {
 
   return (
     <>
-    <Header title="Products"/>
     <Search onSearchHandlerEvent ={onSearch}/>
     <FlatList
       data={productsByCategory}

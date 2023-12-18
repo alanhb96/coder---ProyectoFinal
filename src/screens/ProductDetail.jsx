@@ -1,12 +1,13 @@
-import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native'
 import productsDb from '../data/products.json'
 import { useEffect, useState } from 'react'
-import Header from '../components/Header'
 import {colors} from '../global/colors'
 
-const ProductDetail = ({productId}) => {
+const ProductDetail = ({route}) => {
   const [productSelected,setProductSelected] = useState()
   const [isLoading,setIsLoading] = useState(true)
+
+  const productId = route.params
 
   useEffect(()=>{
     const productFinded = productsDb.find(product=>product.id===productId)
@@ -23,8 +24,7 @@ const ProductDetail = ({productId}) => {
       <ActivityIndicator/>
       :
       <>
-      <Header title='Product Detail'/>
-      <View>
+      <ScrollView>
         <Image
             style={styles.imageProduct}
             resizeMode='cover'
@@ -38,7 +38,7 @@ const ProductDetail = ({productId}) => {
               <Text style={styles.buyText}>Buy</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ScrollView>
         </>
        }
     </>
