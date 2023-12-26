@@ -2,7 +2,8 @@ import { StyleSheet, FlatList, View, TouchableOpacity, Text } from 'react-native
 import cart_data from '../data/cart_data.json'
 import CartItem from '../components/CartItem'
 import { useState, useEffect } from 'react';
-
+import { colors } from '../global/colors'
+ 
 const Cart = () => {
 
   const [total,setTotal] = useState()
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   },
   totalPrice: {
     fontSize: 16,
-    fontFamily: 'Karla-Bold'
+    fontFamily: 'Inter-Bold'
   },
   confirmButton:{
     backgroundColor: colors.secondary,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
   },
   textConfirm:{
-    fontFamily:'Karla-Bold',
+    fontFamily:'Inter-Bold',
     fontSize:16,
     color: '#fff'
   }  

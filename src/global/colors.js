@@ -4,5 +4,6 @@ export const colors = {
     contrast:'#C38D94',
     contrastSecond: '#A76571',
     gray:'#ced4da',
+    black: "#000000",
 
 }

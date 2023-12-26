@@ -1,6 +1,7 @@
-import { createBottomTabNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
+import {StyleSheet} from 'react-native'
 import { Entypo , Feather} from '@expo/vector-icons'; 
 import { colors } from '../global/colors'
 import ShopNavigator from "./ShopNavigator";
@@ -24,16 +25,16 @@ const TabNavigator = () => {
                 <Tab.Screen 
                     name="ShopStack" 
                     component={ShopNavigator}
-                    option = {{
+                    options = {{
                         tabBarIcon:({focused})=>(
-                            <Entypo name="shop" size={24} color={focused?colors.contrastSecond:colors.contcontrast} />
+                            <Entypo name="shop" size={24} color={focused?colors.contrastSecond:colors.contrast} />
                         )
                     }}
                 />
                 <Tab.Screen 
                     name="CartStack" 
                     component={CartNavigator}
-                    option = {{
+                    options = {{
                         tabBarIcon:({focused})=>(
                             <Feather name="shopping-cart" size={24} color={focused?colors.contrastSecond:colors.contrast} />
                         )
@@ -42,7 +43,7 @@ const TabNavigator = () => {
                 <Tab.Screen 
                     name="OrdersStack" 
                     component={OrdersNavigator}
-                    option = {{
+                    options = {{
                         tabBarIcon:({focused})=>(
                             <Entypo name="shopping-bag" size={24} color={focused?colors.contrastSecond:colors.contrast} />
                         )

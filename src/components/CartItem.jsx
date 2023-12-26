@@ -47,18 +47,18 @@ const CartItem = ({item}) => {
           marginLeft: 'auto',
       },
       cartTitle:{
-          fontFamily:'Karla-Bold',
+          fontFamily:'Inter-Bold',
           textTransform: 'capitalize',
           fontSize:20
       },
       cartLightText:{
-          fontFamily:'Karla-regular',
+          fontFamily:'Inter-Regular',
           textTransform: 'capitalize',
           fontSize:15,
       },cartTotalPrice:{
-          fontFamily:'Karla-Bold',
+          fontFamily:'Inter-Bold',
           textTransform: 'capitalize',
           fontSize:16,
-          color:colors.primary,
+          color:colors.black,
       }
   })

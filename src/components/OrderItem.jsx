@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
     },
     createdAt:{
-        fontFamily: 'Karla-regular',
+        fontFamily: 'Inter-Regular',
         marginBottom:5,
     },
     total:{
-        fontFamily: 'Karla-Bold',
+        fontFamily: 'Inter-Bold',
         fontSize:14,
     }
 })
