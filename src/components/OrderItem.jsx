@@ -8,7 +8,7 @@ const OrderItem = ({ order, total }) => {
         <Card style={styles.cartItemContainer}>
             <View >
                 <Text style={styles.createdAt}>
-                    Creada el {new Date(order.createdAt).toLocaleString()}
+                    Ordered: {new Date(order.createdAt).toLocaleString()}
                 </Text>
                 <Text style={styles.total}>Total: ${total}</Text>
             </View>

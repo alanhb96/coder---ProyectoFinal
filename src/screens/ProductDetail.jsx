@@ -2,6 +2,8 @@ import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity, Scr
 import productsDb from '../data/products.json'
 import { useEffect, useState } from 'react'
 import {colors} from '../global/colors'
+import { addItem } from '../features/cartSlice'
+import { useDispatch } from 'react-redux'
 
 const ProductDetail = ({route}) => {
   const [productSelected,setProductSelected] = useState()
@@ -15,6 +17,12 @@ const ProductDetail = ({route}) => {
     setIsLoading(false)
   }
   ,[productId])
+
+  const dispatch = useDispatch()
+
+  const onAddToCart = () => {
+    dispatch(addItem({...productSelected,quantity:1}))
+  }
 
   return (
     <>
@@ -34,8 +42,8 @@ const ProductDetail = ({route}) => {
             <Text style={styles.title}>{productSelected.title}</Text>
             <Text style={styles.description}>{productSelected.description}</Text>
             <Text style={styles.price}>$ {productSelected.price}</Text>
-            <TouchableOpacity style={styles.buyButton} onPress={() => null}>
-              <Text style={styles.buyText}>Buy</Text>
+            <TouchableOpacity style={styles.buyButton} onPress={onAddToCart}>
+              <Text style={styles.buyText}>Add to Cart</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
