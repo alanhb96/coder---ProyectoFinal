@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, KeyboardAvoidingView} from 'react-native'
 import Input from '../components/Input'
 import { useState, useEffect } from 'react'
 import { useSignUpMutation } from '../services/authService'
@@ -25,8 +25,7 @@ const Signup = ({navigation}) => {
       setPasswordError("")
       setConfirmPasswordError("")
         try{
-          signupSchema.validateSync({emai,password,confirmPassword},{abortEarly:false})
-          
+          signupSchema.validateSync({email,password,confirmPassword},{abortEarly:false})
         }catch(error){
           error.errors.map(e => {
             console.log(Object.keys(e)[0])
@@ -62,24 +61,24 @@ const Signup = ({navigation}) => {
 
 
   return (
-    <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior='height'>
       <Input
         label="Email:"
         onChange={setEmail}
         error={emailError}
-      />
+        />
       <Input
         label="Password:"
         onChange={setPassword}
         isSecureEntry={true}
         error={passwordError}
-      />
+        />
       <Input
         label="Repeat password:"
         onChange={setConfirmPassword}
         isSecureEntry={true}
         error={confirmPasswordError}
-      />
+        />
       <TouchableOpacity style={styles.btn} onPress={onSubmit}>
         <Text style={styles.btnText}>Register</Text>
       </TouchableOpacity>
@@ -89,7 +88,7 @@ const Signup = ({navigation}) => {
             <Text style={styles.subtitleLink}>Log in!</Text>
         </TouchableOpacity>
       </View>
-    </View>
+  </KeyboardAvoidingView>
   )
 }
 
