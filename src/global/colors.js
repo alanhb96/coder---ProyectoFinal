@@ -5,5 +5,6 @@ export const colors = {
     contrastSecond: '#A76571',
     gray:'#ced4da',
     black: "#000000",
+    success:'#00A878',
 
 }

@@ -6,6 +6,7 @@ import { colors } from '../global/colors'
 import ShopNavigator from "./ShopNavigator";
 import CartNavigator from "./CartNavigator";
 import OrdersNavigator from "./OrdersNavigator";
+import ProfileNavigator from "./ProfileNavigator";
 
 const Tab = createBottomTabNavigator()
 
@@ -44,6 +45,15 @@ const TabNavigator = () => {
                     options = {{
                         tabBarIcon:({focused})=>(
                             <Entypo name="shopping-bag" size={24} color={focused?colors.contrastSecond:colors.contrast} />
+                        )
+                    }}
+                />
+                <Tab.Screen 
+                    name="ProfileStack" 
+                    component={ProfileNavigator}
+                    options = {{
+                        tabBarIcon:({focused})=>(
+                            <Entypo name="user-o" size={24} color={focused?colors.contrastSecond:colors.contrast} />
                         )
                     }}
                 />

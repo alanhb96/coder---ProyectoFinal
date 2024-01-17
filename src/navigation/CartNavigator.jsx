@@ -9,7 +9,7 @@ const CartNavigator = () => {
     
     return(
             <Stack.Navigator
-                initialRouteName="Categories"
+                initialRouteName="Cart"
                 screenOptions={
                     ({navigation, route}) => ({header: () => <Header title={route.name} navigation={navigation} />})
                 }
