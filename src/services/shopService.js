@@ -32,8 +32,8 @@ export const shopApi = createApi({
         }),
         getProfilePicture: builder.query({
             query: (localId) => `profilePictures/${localId}.json` 
-        })
+        }),
     })
 })
 
-export const {useGetCategoriesQuery, useGetProductQuery, useGetProductsByCategoryQuery, usePostOrderMutation, usePutProfilePicture, useGetProfilePicture} = shopApi
+export const {useGetCategoriesQuery, useGetProductQuery, useGetProductsByCategoryQuery, usePostOrderMutation, usePutProfilePictureMutation, useGetProfilePictureQuery} = shopApi

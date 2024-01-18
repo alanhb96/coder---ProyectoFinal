@@ -4,14 +4,14 @@ import AuthNavigator from './AuthNavigator'
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from 'react'
 import { setProfilePicture } from '../features/authSlice'
-import { useGetProfilePicture } from '../services/shopService'
+import { useGetProfilePictureQuery } from '../services/shopService'
 
 
-const MainNavigator = ( ) => {
+const MainNavigator = () => {
     const user = useSelector(state=>state.authReducer.user)
     const localId = useSelector(state=>state.authReducer.localId)
 
-    const {data,error,isLoading} = useGetProfilePicture(localId)
+    const {data,error,isLoading} = useGetProfilePictureQuery(localId)
 
     const dispatch = useDispatch()
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native'
 import { useState} from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import { colors } from '../global/colors'

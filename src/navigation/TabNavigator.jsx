@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import {StyleSheet} from 'react-native'
-import { Entypo , Feather} from '@expo/vector-icons'; 
+import { Entypo , Feather, FontAwesome} from '@expo/vector-icons'; 
 import { colors } from '../global/colors'
 import ShopNavigator from "./ShopNavigator";
 import CartNavigator from "./CartNavigator";
@@ -52,8 +52,8 @@ const TabNavigator = () => {
                     name="ProfileStack" 
                     component={ProfileNavigator}
                     options = {{
-                        tabBarIcon:({focused})=>(
-                            <Entypo name="user-o" size={24} color={focused?colors.contrastSecond:colors.contrast} />
+                        tabBarIcon: ({focused}) => (
+                            <FontAwesome name="user-o" size={24} color={focused?colors.contrastSecond:colors.contrast} />
                         )
                     }}
                 />

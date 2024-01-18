@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View, Image} from 'react-native'
 import user_data from "../data/user_data.json"
 import { useSelector } from 'react-redux'
 
-const Profile = (navigation) => {
+const Profile = ({navigation}) => {
   
   const image = useSelector(state=>state.authReducer.profilePicture)
   
