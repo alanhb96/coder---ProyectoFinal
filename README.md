@@ -36,9 +36,13 @@ This is a ecommerce project made for a React Native Course for Coderhouse.
 
 ### Usage
 
-Now from the console run the following code so you get going the app: 
+Now from the console run the following code so you get going the app:
 
-   ```bash
-   npx expo start
+    ```bash
+     npx expo start
 
 And with your virtual device configured as pleased, run the emulator and from the terminal run the command 'A' so that the app excutes correctly.
+
+
+
+
