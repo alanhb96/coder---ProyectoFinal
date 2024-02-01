@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from 'react'
 import { setProfilePicture, setUserLocation } from '../features/authSlice'
 import { useGetProfilePictureQuery, useGetUserLocationQuery } from '../services/shopService'
+import { fetchSession } from "../db"
 
 
 const MainNavigator = () => {
@@ -24,6 +25,21 @@ const MainNavigator = () => {
             dispatch(setUserLocation(locationData))
         }
     },[data,locationData])
+
+    useEffect(()=>{
+        (async () =>{
+            try{
+                const session = await fetchSession()
+                if(session?.rows.length){
+                    console.log("User created")
+                    const user = session.rows._array[0]
+                    dispatch(setUser(user))
+                }
+            }catch(error){
+                console.log("Error fetching data from local user: ",error.message)
+            }
+        })()
+    },[])
 
     return(
         <NavigationContainer>

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   imageProduct: {
     minWidth: 300,
     width: '100%',
-    height: 400,
+    height: 300,
   },
   detailContainer: {
     alignItems: 'center',

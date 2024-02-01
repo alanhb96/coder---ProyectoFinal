@@ -9,12 +9,13 @@ const Cart = ({navigation}) => {
 
   const cartItems = useSelector(state=>state.cartReducer.items)
   const total = useSelector(state=>state.cartReducer.total)
+  const localId = useSelector(state=>state.authReducer.localId)
   const [triggerPost, result] = usePostOrderMutation() 
 
 
   const confirmCart = () => {
-    triggerPost({total,cartItems,user:"LoggedUser"})
-    //navigation.navigate("categories")
+    const createdAt = Date.now()
+    triggerPost({total,cartItems,localId:localId, createdAt: createdAt, orderId: Math.ceil(Math.random(1,10)*1000)})
   }
 
   const renderCartItem = ({item}) => (

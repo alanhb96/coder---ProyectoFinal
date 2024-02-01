@@ -1,13 +1,25 @@
-import { Pressable, StyleSheet, Text, View, Image} from 'react-native'
+import { Pressable, StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native'
 import user_data from "../data/user_data.json"
-import { useSelector } from 'react-redux'
-import LoactionSelector from '../components/LoactionSelector'
+import { useDispatch, useSelector } from 'react-redux'
+//import LoactionSelector from '../components/LoactionSelector'
+import {logout} from '../features/authSlice'
 import {colors} from '../global/colors'
+import {AntDesign} from '@expo/vector-icons'
+import { deleteSession } from '../db'
 
 const Profile = ({navigation}) => {
   
   const image = useSelector(state=>state.authReducer.profilePicture)
-  const location = useSelector(state=>state.authReducer.location)
+  //const location = useSelector(state=>state.authReducer.location)
+
+  const email = useSelector(state=>state.authReducer.user)
+  const localId = useSelector(state=>state.authReducer.localId)
+  const dispatch = useDispatch()
+
+  const onLogout = () => {
+    dispatch(logout())
+    deleteSession(localId)
+  }
   
   return (
     <>
@@ -44,15 +56,22 @@ const Profile = ({navigation}) => {
           <Text style={styles.userData}>Adress: {user_data.adress}</Text>
           <Text style={styles.userData}>{user_data.city}</Text>
         </View>
+        {
+          email
+          &&
+          <TouchableOpacity onPress={onLogout}>
+            <AntDesign name="logout" size={20} color="black" />
+          </TouchableOpacity>
+        }
       </View>
-      {
+{/*       {
         location.addres &&
         <View style={styles.addressContainer}> 
           <Text style={styles.addressTitle}>Last Location</Text>
           <Text style={styles.addressDescription}>{location.address}</Text>
         </View>
       }
-      <LoactionSelector />
+      <LoactionSelector /> */}
     </>
   )
 }

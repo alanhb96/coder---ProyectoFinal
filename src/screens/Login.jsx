@@ -5,6 +5,7 @@ import { useLogInMutation } from '../services/authService'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../features/authSlice'
 import { colors } from '../global/colors'
+import { insertSession } from '../db'
 
 const Login = ({navigation}) => {
     const [email,setEmail] = useState("")
@@ -21,6 +22,13 @@ const Login = ({navigation}) => {
     useEffect(()=>{
         if(result.data){
             dispatch(setUser(result.data))
+            insertSession({
+              localId:result.data.localId,
+              email:result.data.email,
+              token:result.data.token
+        })
+        .then(result=>console.log("User inserted correctyl: ",result))
+        .catch(error=>console.log("Error while inserting user: ",error))
         }
     }, [result])
 
@@ -33,6 +41,7 @@ const Login = ({navigation}) => {
       <Input
         label="Password:"
         onChange={setPassword}
+        isSecureEntry={true}
       />
       <TouchableOpacity style={styles.btn} onPress={onSubmit}>
         <Text style={styles.btnText}>Log In</Text>
