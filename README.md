@@ -7,6 +7,7 @@ This is a ecommerce project made for a React Native Course for Coderhouse.
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
 
 ## Getting Started
 
@@ -33,7 +34,6 @@ This is a ecommerce project made for a React Native Course for Coderhouse.
    ```bash
    npm i @react-navigation/native @reduxjs/toolkit expo-file-system expo-image-picker expo-status-bar expo-location yup expo-sqlite react react-native expo
 
-
 ### Usage
 
 Now from the console run the following code so you get going the app:
@@ -43,6 +43,8 @@ Now from the console run the following code so you get going the app:
 
 And with your virtual device configured as pleased, run the emulator and from the terminal run the command 'A' so that the app excutes correctly.
 
+### Features
 
+Being an ecommerce app you can use the different facilities of the application, such as creating a personal account, navigate the shop and add orders to your account, checkouts and more!
 
 
